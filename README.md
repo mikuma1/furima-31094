@@ -30,7 +30,7 @@
 | prefecture          | integer    | null: false                    |
 | scheduled_delivery  | integer    | null: false                    |
 | price               | integer    | null: false                    |
-| user_id             | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -47,7 +47,7 @@
 | addresses      | string     | null: false                    |
 | building       | string     | null: false                    |
 | phone_number   | string     | null: false                    |
-| item_id        | references | null: false, foreign_key: true |
+| item           | references | null: false, foreign_key: true |
 
 ### Association
 
