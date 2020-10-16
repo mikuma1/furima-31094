@@ -7,10 +7,10 @@
 | nickname           | string  | null: false |
 | email              | string  | null: false |
 | password           | string  | null: false |
-| last-name          | string  | null: false |
-| first-name         | string  | null: false |
-| last-name-kana     | string  | null: false |
-| first-name-kana    | string  | null: false |
+| last_name          | string  | null: false |
+| first_name         | string  | null: false |
+| last_name_kana     | string  | null: false |
+| first_name_kana    | string  | null: false |
 | user_birth_date　　 | date    | null: false |
 
 ### Association
@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column                   | Type       | Options                        |
-| ------------------------ | ---------- | ------------------------------ |
-| item-name                | string     | null: false                    |
-| item-info                | string     | null: false                    |
-| item-category            | integer    | null: false                    |
-| item-sales-status        | integer    | null: false                    |
-| item-shopping-fee-status | integer    | null: false                    |
-| item-prefecture          | integer    | null: false                    |
-| item-scheduled-delivery  | integer    | null: false                    |
-| item-price               | integer    | null: false                    |
-| user_id                  | references | null: false, foreign_key: true |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| name                | string     | null: false                    |
+| info                | string     | null: false                    |
+| category            | integer    | null: false                    |
+| sales_status        | integer    | null: false                    |
+| shopping_fee_status | integer    | null: false                    |
+| prefecture          | integer    | null: false                    |
+| scheduled_delivery  | integer    | null: false                    |
+| price               | integer    | null: false                    |
+| user_id             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -41,12 +41,12 @@
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| postal-code    | string     | null: false                    |
+| postal_code    | string     | null: false                    |
 | prefecture     | integer    | null: false                    |
 | city           | string     | null: false                    |
 | addresses      | string     | null: false                    |
 | building       | string     | null: false                    |
-| phone-number   | string     | null: false                    |
+| phone_number   | string     | null: false                    |
 | item_id        | references | null: false, foreign_key: true |
 
 ### Association
