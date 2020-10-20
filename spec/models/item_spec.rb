@@ -23,25 +23,50 @@ RSpec.describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Info can't be blank")
       end
+      it 'categoryが空の場合登録できない' do
+        @item.category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
       it 'categoryが選択されていない場合登録できない' do
         @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
+      end
+      it 'sales_statusが空の場合登録できない' do
+        @item.sales_status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Sales status can't be blank")
       end
       it 'sales_statusが選択されていない場合登録できない' do
         @item.sales_status_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include('Sales status must be other than 1')
       end
+      it 'shopping_fee_statusが空の登録できない' do
+        @item.shopping_fee_status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shopping fee status can't be blank")
+      end
       it 'shopping_fee_statusが選択されていない場合登録できない' do
         @item.shopping_fee_status_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include('Shopping fee status must be other than 1')
       end
+      it 'prefectureが空の場合登録できない' do
+        @item.prefecture_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      end
       it 'prefectureが選択されていない場合登録できない' do
         @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
+      end
+      it 'scheduled_deliveryが空の場合登録できない' do
+        @item.scheduled_delivery_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Scheduled delivery can't be blank")
       end
       it 'scheduled_deliveryが選択されていない場合登録できない' do
         @item.scheduled_delivery_id = '1'
