@@ -10,6 +10,8 @@ class Item < ApplicationRecord
   validates :image, :name, :info, :category, :sales_status,
             :shopping_fee_status,:prefecture,:scheduled_delivery,:price,:user_id,
             presence: true
+  validates :price, inclusion: {in: 300..9999999 }, numericality: true
+  
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :sales_status_id
@@ -17,5 +19,4 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :scheduled_delivery_id
   end
-  validates :price, inclusion: {in: 300..9999999 }, numericality: true
 end
