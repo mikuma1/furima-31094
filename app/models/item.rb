@@ -7,8 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :scheduled_delivery
   has_one_attached :image
 
-  validates :image, :name, :info, :category, :sales_status,
-            :shopping_fee_status, :prefecture, :scheduled_delivery, :price, :user_id,
+  validates :image, :name, :info, :category_id, :sales_status_id,
+            :shopping_fee_status_id, :prefecture_id, :scheduled_delivery_id, :price, :user_id,
             presence: true
   validates :price, inclusion: { in: 300..9_999_999 }, numericality: true
 
