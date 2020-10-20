@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :scheduled_delivery
   has_one_attached :image
 
-  validates :name, :info, :category, :sales_status,
+  validates :image, :name, :info, :category, :sales_status,
             :shopping_fee_status,:prefecture,:scheduled_delivery,:price,:user_id,
             presence: true
   with_options numericality: { other_than: 1 } do
@@ -17,6 +17,5 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :scheduled_delivery_id
   end
-  validates :user_id, numericality: { greater_than_or_equal_to: 300, less_than: 9999999 },
-            format: { with: /\A[０-９]+\z/ }
+  validates :price, inclusion: {in: 300..9999999 }, numericality: true
 end
