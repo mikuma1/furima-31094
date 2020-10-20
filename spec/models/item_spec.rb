@@ -4,7 +4,7 @@ RSpec.describe Item do
   before do
     @item = FactoryBot.build(:item)
   end
-  
+
   describe '商品出品登録' do
     context '商品登録がうまくいくとき' do
       it '全ての項目が存在すれば登録できる' do
@@ -26,27 +26,27 @@ RSpec.describe Item do
       it 'categoryが選択されていない場合登録できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'sales_statusが選択されていない場合登録できない' do
         @item.sales_status_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sales status must be other than 1")
+        expect(@item.errors.full_messages).to include('Sales status must be other than 1')
       end
       it 'shopping_fee_statusが選択されていない場合登録できない' do
         @item.shopping_fee_status_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shopping fee status must be other than 1")
+        expect(@item.errors.full_messages).to include('Shopping fee status must be other than 1')
       end
       it 'prefectureが選択されていない場合登録できない' do
         @item.prefecture_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'scheduled_deliveryが選択されていない場合登録できない' do
         @item.scheduled_delivery_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Scheduled delivery must be other than 1")
+        expect(@item.errors.full_messages).to include('Scheduled delivery must be other than 1')
       end
       it 'priceが空の場合登録できない' do
         @item.price = nil
@@ -56,19 +56,18 @@ RSpec.describe Item do
       it 'priceが300未満の場合登録できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
       it 'priceが9999999より多い場合登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
       it 'priceが半角数字でない場合登録できない' do
         @item.price = '４００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
 end
-
