@@ -29,9 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    if item_params[:image] == nil
-      item_params[:image] = @item.image
-    end
+    item_params[:image] = @item.image if item_params[:image].nil?
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -50,8 +48,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    if current_user != @item.user || Order.where(item_id: @item.id).exists?
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user != @item.user || Order.where(item_id: @item.id).exists?
   end
 end
