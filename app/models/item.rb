@@ -6,6 +6,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :scheduled_delivery
   has_one_attached :image
+  belongs_to :user
+  has_one :order
 
   validates :image, :name, :info, :category_id, :sales_status_id,
             :shopping_fee_status_id, :prefecture_id, :scheduled_delivery_id, :price, :user_id,
