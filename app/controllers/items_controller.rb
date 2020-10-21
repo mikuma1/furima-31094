@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item_params[:image] = @item.image if item_params[:image].nil?
     if @item.update(item_params)
       redirect_to root_path
     else
