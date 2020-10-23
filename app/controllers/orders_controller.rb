@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @order_address = OrderAddress.new(address_params)
     price = Item.find(address_params[:item_id]).price
     if @order_address.valid?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       Payjp::Charge.create(
         amount: price,
         card: address_params[:token],
