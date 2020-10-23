@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item do
   before do
-    @item = FactoryBot.build(:item)
+    @item = FactoryBot.create(:item)
   end
 
   describe '商品出品登録' do
